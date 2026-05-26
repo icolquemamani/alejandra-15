@@ -1,0 +1,52 @@
+<div class="app-container">
+  <app-sparkles></app-sparkles>
+
+  <!-- ======== PORTADA ======== -->
+  <app-cover [class.closed]="!isCoverVisible" (onEnter)="enterInvitation()"></app-cover>
+
+  <!-- ======== CONTENIDO PRINCIPAL ======== -->
+  <div class="main-invitation" [class.visible]="!isCoverVisible">
+
+    <!-- Fondo fijo -->
+    <div class="background-parallax">
+      <img src="assets/images/fondo-aurora33-scaled-copia-copia.webp" alt="" class="forest-bg">
+    </div>
+
+    <!-- Elementos flotantes (Cheshire Cat + Cards) (Comentados como en el original) -->
+    <!-- <div class="cheshire-container float">
+      <img src="assets/images/cheshire.png" alt="Cheshire Cat" class="cheshire-img">
+    </div> -->
+    <!-- <div class="cards-container float" style="animation-delay: -2.5s;">
+      <img src="assets/images/cards.png" alt="Playing Cards" class="cards-img">
+    </div> -->
+
+    @if (!isCoverVisible) {
+      <!-- ========== SECCIÓN 1: INTRO ========== -->
+      <app-intro></app-intro>
+
+      <!-- ========== SECCIÓN 2: FAMILIA ========== -->
+      <app-family></app-family>
+
+      <!-- ========== SECCIÓN 3: FECHA Y CUENTA REGRESIVA ========== -->
+      <app-date></app-date>
+
+      <!-- ========== SECCIÓN 4: FOTO DE ALICIA ========== -->
+      <app-photo></app-photo>
+
+      <!-- ========== SECCIÓN 5: DETALLES DEL EVENTO ========== -->
+      <app-event></app-event>
+
+      <!-- ========== SECCIÓN 6: REGALOS ========== -->
+      <app-gifts></app-gifts>
+
+      <!-- ========== SECCIÓN 7: CONFIRMACIÓN ========== -->
+      <app-rsvp></app-rsvp>
+
+      <!-- ========== SECCIÓN 8: GALERÍA ========== -->
+      <!-- <app-gallery></app-gallery> -->
+
+      <!-- Música -->
+      <app-music-player [isVisible]="!isCoverVisible"></app-music-player>
+    }
+  </div>
+</div>

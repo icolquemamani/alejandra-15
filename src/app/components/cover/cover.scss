@@ -1,0 +1,254 @@
+/* =============================================
+   COVER COMPONENT - Alicia en el País de las Maravillas
+   ============================================= */
+
+:host {
+  display: block;
+}
+
+/* Contenedor principal de la portada */
+.cover-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--bg-green-500); /* Asegura un color oscuro sólido inmediatamente al cargar */
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s linear 0s;
+
+  @media (min-width: 769px) {
+    align-items: flex-end;
+  }
+}
+
+:host.closed {
+  .cover-overlay {
+    transform: translateY(-100%);
+    pointer-events: none;
+    visibility: hidden;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s linear 1.2s;
+  }
+}
+
+/* Fondo con imagen y gradiente oscuro */
+.cover-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/portada-alicia-2-scaled-copia.webp');
+  background-size: cover;
+  background-position: center 70%;
+  background-repeat: no-repeat;
+  z-index: -2;
+
+  /* Overlay oscuro para mejor legibilidad */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 2, 30, 0.55) 0%,
+      rgba(10, 2, 30, 0.25) 40%,
+      rgba(10, 2, 30, 0.60) 100%
+    );
+  }
+
+  @media (max-width: 768px) {
+    background-image: url('/assets/images/portada-alicia-1.png');
+    background-position: center 30%;
+  }
+}
+
+/* Ornamento superior fijo */
+.top-ornament {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.ornament-img {
+  width: 140px;
+  max-width: 30vw;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+}
+
+/* Contenedor central del contenido */
+.cover-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  max-width: 90vw;
+
+  @media (min-width: 769px) {
+    max-width: 45vw;
+    margin-right: 20%;
+  }
+}
+
+/* Subtítulo */
+.cover-subtitle {
+  font-family: 'Alice', serif;
+  letter-spacing: 5px;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  color: rgba(255, 247, 212, 0.85);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+/* Título principal "15 Años" */
+.cover-title {
+  font-family: 'Alice', cursive;
+  font-size: clamp(4.5rem, 14vw, 9rem);
+  color: #fff7d4;
+  text-shadow:
+    0 0 30px rgba(255, 215, 0, 0.6),
+    0 0 60px rgba(180, 130, 0, 0.3);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+/* Palos de cartas flotantes */
+.cover-suits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.2rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+}
+
+.suit {
+  opacity: 0.9;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
+}
+
+.suit-1 { width: clamp(30px, 5vw, 50px); transform: rotate(-12deg); animation-delay: 0s; }
+.suit-2 { width: clamp(38px, 6vw, 62px); transform: rotate(6deg); animation-delay: 0.8s; }
+.suit-3 { width: clamp(32px, 5vw, 52px); transform: rotate(-5deg); animation-delay: 1.6s; }
+.suit-4 { width: clamp(30px, 5vw, 50px); transform: rotate(12deg); animation-delay: 2.4s; }
+
+/* Botón de ingreso con fondo transparente */
+.enter-btn {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  color: #fff7d4;
+  border: 1.5px solid rgba(255, 247, 212, 0.7);
+  padding: 0.85rem 2.4rem;
+  font-family: 'Alice', serif;
+  font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(4px);
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.15),
+    inset 0 0 20px rgba(255, 215, 0, 0.05);
+  animation: buttonPulse 3s infinite ease-in-out;
+
+  /* Destello de luz diagonal periódico (shimmer) */
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shimmerBeam 5.5s infinite ease-in-out;
+  }
+
+  &:hover {
+    background: rgba(255, 247, 212, 0.15);
+    border-color: #ffd700;
+    color: #ffd700;
+    transform: scale(1.04);
+    box-shadow:
+      0 0 30px rgba(255, 215, 0, 0.3),
+      0 0 60px rgba(255, 215, 0, 0.1);
+  }
+}
+
+@keyframes buttonPulse {
+  0% {
+    box-shadow:
+      0 0 15px rgba(255, 215, 0, 0.15),
+      inset 0 0 15px rgba(255, 215, 0, 0.05);
+    border-color: rgba(255, 247, 212, 0.6);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(255, 215, 0, 0.4),
+      inset 0 0 25px rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.95);
+  }
+  100% {
+    box-shadow:
+      0 0 15px rgba(255, 215, 0, 0.15),
+      inset 0 0 15px rgba(255, 215, 0, 0.05);
+    border-color: rgba(255, 247, 212, 0.6);
+  }
+}
+
+@keyframes shimmerBeam {
+  0% {
+    left: -60%;
+  }
+  15%, 100% {
+    left: 140%;
+  }
+}
+
+/* =============================================
+   FIREFLIES / DESTELLOS
+   ============================================= */
+.fireflies-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 5;
+}
+
+.firefly {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: var(--size);
+  height: var(--size);
+  background: url('/assets/images/Luz-destello-blanco.webp') no-repeat center center;
+  background-size: contain;
+  opacity: 0;
+  animation: drift var(--duration) var(--delay) ease-in-out infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(0.6);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,60 @@
+.sparkles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1001; // Stay above cover (z-index 1000)
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  background-image: url('/assets/images/Luz-destello-blanco.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+  animation: fairyDust linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes fairyDust {
+  0% {
+    transform: translate(0, 0) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: var(--sparkle-opacity, 0.8);
+    transform: translate(-10px, -20px) scale(1) rotate(45deg);
+  }
+  50% {
+    transform: translate(10px, -50px) scale(1.2) rotate(90deg);
+  }
+  80% {
+    opacity: var(--sparkle-opacity, 0.8);
+    transform: translate(-5px, -80px) scale(1) rotate(135deg);
+  }
+  100% {
+    transform: translate(0, -110px) scale(0) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+// Enhance the animation with a slight pulse
+.sparkle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(2px);
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); opacity: 0.5; }
+  to { transform: scale(1.5); opacity: 0.8; }
+}

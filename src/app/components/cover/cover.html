@@ -1,0 +1,34 @@
+<!-- PORTADA / COVER SCREEN -->
+<div class="cover-overlay" id="cover-section">
+  <!-- Fireflies / destellos -->
+  <div class="fireflies-container">
+    <div class="firefly" *ngFor="let f of fireflies" [style.--top]="f.top" [style.--left]="f.left" [style.--size]="f.size" [style.--duration]="f.duration" [style.--delay]="f.delay" [style.--dx]="f.dx" [style.--dy]="f.dy"></div>
+  </div>
+
+  <!-- Fondo con gradiente oscuro sobre imagen -->
+  <div class="cover-bg"></div>
+
+  <!-- Ornamento arriba fijo -->
+  <!-- <div class="top-ornament float">
+    <img src="assets/images/Recurso-9.svg" alt="Ornamento" class="ornament-img">
+  </div> -->
+
+  <!-- Contenido principal de la portada -->
+  <div class="cover-content fade-in">
+    <p class="cover-subtitle">TE ESPERO EN MI FIESTA DE</p>
+    <h1 class="cover-title">15 Años</h1>
+
+    <div class="cover-suits">
+      <img src="assets/images/Recurso-2.svg" class="suit float suit-1" alt="">
+      <img src="assets/images/Recurso-5.svg" class="suit float suit-2" alt="">
+      <img src="assets/images/Recurso-7.svg" class="suit float suit-3" alt="">
+      <img src="assets/images/Recurso-6.svg" class="suit float suit-4" alt="">
+    </div>
+
+    <div class="slide-up">
+      <button class="enter-btn" id="btn-ingresar" (click)="enter()">
+        INGRESAR A MI INVITACIÓN
+      </button>
+    </div>
+  </div>
+</div>

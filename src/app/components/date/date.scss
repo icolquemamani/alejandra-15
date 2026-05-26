@@ -1,0 +1,191 @@
+.date-section {
+  background: linear-gradient(180deg, rgba(10, 2, 30, 0.0) 0%, rgba(30, 8, 70, 0.8) 50%, rgba(10, 2, 30, 0.0) 100%);
+  position: relative;
+}
+
+/* ── Scroll-animated flying cards ── */
+.scroll-cards-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scroll-card {
+  position: absolute;
+  width: clamp(40px, 6vw, 72px);
+  opacity: 0.85;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.45));
+  will-change: transform;
+}
+
+/* Starting positions (top-left anchors, fine-tuned per card) */
+.scroll-card-0 { top: 12%;  left: 6%;  }
+.scroll-card-1 { top: 55%;  left: 72%; }
+.scroll-card-2 { top:  8%;  left: 52%; }
+.scroll-card-3 { top: 65%;  left: 18%; }
+
+/* Content must sit above the cards */
+.date-content,
+.countdown-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.date-ornament, .separator-line {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.separator {
+  width: clamp(120px, 30vw, 200px);
+  // filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg);
+  opacity: 0.7;
+}
+
+.date-suits-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2rem);
+  margin-bottom: 2rem;
+}
+
+.suit-sm {
+  width: clamp(22px, 4vw, 42px);
+  opacity: 0.8;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.3));
+}
+
+.date-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // border-top: 1.5px solid rgba(255, 215, 0, 0.4);
+  // border-bottom: 1.5px solid rgba(255, 215, 0, 0.4);
+  padding: 1rem 3rem;
+  gap: 0.2rem;
+}
+
+.date-weekday {
+  font-family: 'Alice', serif;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  letter-spacing: 6px;
+  color: #fff7d4; /* $gold-l */
+}
+
+.date-day {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 14vw, 8rem);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #ffd700; /* $gold */
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.date-month {
+  font-family: 'Alice', serif;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  letter-spacing: 6px;
+  color: #fff7d4; /* $gold-l */
+}
+
+/* Countdown */
+.countdown-wrapper {
+  text-align: center;
+}
+
+.countdown-label-top {
+  font-family: 'Alice', serif;
+  font-size: clamp(1rem, 4vw, 2rem);
+  color: rgba(255, 247, 212, 0.75);
+  margin-bottom: 1.2rem;
+  max-width: 320px;
+  line-height: 1.5;
+  justify-self: center;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.count-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  min-width: clamp(55px, 12vw, 85px);
+}
+
+.count-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: #ffd700; /* $gold */
+  line-height: 1;
+}
+
+.count-label {
+  font-family: 'Alice', serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+  color: #fff7d4; /* $gold-l */
+  letter-spacing: 2px;
+  margin-top: 0.3rem;
+}
+
+.count-sep {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: #ffd700; /* $gold */
+  align-self: flex-start;
+  padding-top: 0.6rem;
+}
+
+@media (max-width: 600px) {
+  .countdown { gap: 0.25rem; }
+  .count-unit { padding: 0.6rem 0.7rem; }
+
+  /* En móvil: cartas en la parte superior en fila, sin tapar el contenido */
+  .scroll-cards-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .scroll-card {
+    position: static;   /* salir del absolute para alinearse en flex */
+    width: 28px;
+    opacity: 0.6;
+  }
+
+  /* Las posiciones absolutas por carta no aplican en móvil */
+  .scroll-card-0,
+  .scroll-card-1,
+  .scroll-card-2,
+  .scroll-card-3 {
+    top: auto;
+    left: auto;
+  }
+}
+
+

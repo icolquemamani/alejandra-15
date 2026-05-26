@@ -1,0 +1,53 @@
+<section class="section date-section" id="fecha" #dateSection>
+  <div class="date-ornament">
+    <img src="assets/images/15-rominaRecurso-61separador.svg" alt="" class="separator">
+  </div>
+
+  <!-- Scroll-animated flying cards -->
+  <div class="scroll-cards-layer" aria-hidden="true">
+    <img #card0 src="assets/images/Recurso-2.svg" class="scroll-card scroll-card-0" alt="">
+    <img #card1 src="assets/images/Recurso-5.svg" class="scroll-card scroll-card-1" alt="">
+    <img #card2 src="assets/images/Recurso-7.svg" class="scroll-card scroll-card-2" alt="">
+    <img #card3 src="assets/images/Recurso-6.svg" class="scroll-card scroll-card-3" alt="">
+  </div>
+
+  <div class="date-content">
+
+    <div class="date-badge">
+      <span class="date-weekday">SÁBADO</span>
+      <span class="date-day">20</span>
+      <span class="date-month">JUNIO</span>
+    </div>
+
+    <div class="separator-line">
+      <img src="assets/images/15-rominaRecurso-61separador.svg" alt="" class="separator">
+    </div>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown-wrapper">
+    <div class="countdown" id="countdown-timer">
+      <div class="count-unit">
+        <span class="count-number" id="days">{{ countdown.days }}</span>
+        <span class="count-label">Días</span>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-unit">
+        <span class="count-number" id="hours">{{ countdown.hours }}</span>
+        <span class="count-label">Horas</span>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-unit">
+        <span class="count-number" id="minutes">{{ countdown.minutes }}</span>
+        <span class="count-label">Min</span>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-unit">
+        <span class="count-number" id="seconds">{{ countdown.seconds }}</span>
+        <span class="count-label">Seg</span>
+      </div>
+    </div>
+    <div class="countdown-label-top">Por favor No llegues tarde a una cita muy importante!</div>
+    
+  </div>
+</section>

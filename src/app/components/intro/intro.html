@@ -1,0 +1,84 @@
+<section class="section intro-section" id="intro">
+  <div class="intro-container fade-in">
+    <div class="intro-titles">
+      <p class="intro-xvanos">XV Años</p>
+      <p class="intro-alicia-text" [class.active]="isVisible">
+        <span class="letter">A</span>
+        <span class="letter">l</span>
+        <span class="letter">e</span>
+        <span class="letter">j</span>
+        <span class="letter">a</span>
+        <span class="letter">n</span>
+        <span class="letter">d</span>
+        <span class="letter">r</span>
+        <span class="letter">a</span>
+      </p>
+    </div>
+
+    <div class="floating-suits" [class.active]="isVisible" [class.scroll-ready]="isScrollReady">
+      <div class="card-wrapper wrapper-1">
+        <img src="assets/images/Recurso-2.svg" class="suit-card suit-1" alt="">
+      </div>
+      <div class="card-wrapper wrapper-2">
+        <img src="assets/images/Recurso-5.svg" class="suit-card suit-2" alt="">
+      </div>
+      <div class="card-wrapper wrapper-3">
+        <img src="assets/images/Recurso-7.svg" class="suit-card suit-3" alt="">
+      </div>
+      <div class="card-wrapper wrapper-4">
+        <img src="assets/images/Recurso-6.svg" class="suit-card suit-4" alt="">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Banner con degradado púrpura angulado y destellos en el bottom -->
+  <div class="intro-bottom-banner fade-in">
+    <div class="banner-sparkle sparkle-1"></div>
+    <div class="banner-sparkle sparkle-2"></div>
+    <div class="banner-sparkle sparkle-3"></div>
+    <div class="banner-sparkle sparkle-4"></div>
+    <div class="banner-sparkle sparkle-5"></div>
+
+    <div class="intro-message slide-up">
+      <p>Te invito a acompañarme a vivir una noche mágica, llena de sueños, alegría
+        y momentos que guardaré por siempre en mi corazón.</p>
+    </div>
+  </div>
+
+  <!-- SVG tapa de sobre: triángulo con punta hacia abajo, fuera del banner para no ser cortado por el overflow -->
+  <!-- <svg class="envelope-flap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="envelopeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="rgba(26, 1, 46, 0.98)" />
+        <stop offset="50%"  stop-color="rgba(75, 0, 130, 0.96)" />
+        <stop offset="100%" stop-color="rgba(26, 1, 46, 0.98)" />
+      </linearGradient>
+      <filter id="envelopeGlow">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+        <feColorMatrix in="blur" type="matrix"
+          values="0 0 0 0 0.54
+                  0 0 0 0 0
+                  0 0 0 0 0.78
+                  0 0 0 0.7 0" result="coloredBlur" />
+        <feMerge>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    <polygon
+      points="0,0 1440,0 720,120"
+      fill="url(#envelopeGrad)"
+      filter="url(#envelopeGlow)"
+    />
+
+    <polyline
+      points="0,0 720,120 1440,0"
+      fill="none"
+      stroke="rgba(255, 215, 0, 0.45)"
+      stroke-width="1.5"
+    />
+  </svg> -->
+</section>

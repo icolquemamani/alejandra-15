@@ -1,0 +1,14 @@
+<div class="sparkles-container">
+  <div *ngFor="let sparkle of sparkles" 
+       class="sparkle"
+       [ngStyle]="{
+         'left': sparkle.left,
+         'top': sparkle.top,
+         'width': sparkle.size,
+         'height': sparkle.size,
+         'animation-duration': sparkle.duration,
+         'animation-delay': sparkle.delay,
+         '--sparkle-opacity': sparkle.opacity
+       }">
+  </div>
+</div>

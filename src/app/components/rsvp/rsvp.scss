@@ -1,0 +1,117 @@
+.rsvp-section {
+  position: relative;
+  padding-bottom: 110px; /* espacio para el wave absoluto */
+  background: linear-gradient(180deg, rgba(10, 2, 30, 0.0) 0%, rgba(20, 5, 50, 0.85) 50%, rgba(10, 2, 30, 0.0) 100%);
+}
+
+.rsvp-card {
+  max-width: 480px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+}
+
+.rsvp-title {
+  font-family: 'Alice', serif;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #fff7d4; /* $gold-l */
+  line-height: 1.5;
+}
+
+.rsvp-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255, 247, 212, 0.7);
+}
+
+.rsvp-deadline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: #ffd700; /* $gold */
+}
+
+.rsvp-btn {
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  padding: 0.8rem 2rem;
+  margin-top: 0.5rem;
+}
+
+/* Botón transparente con borde dorado */
+.glass-btn {
+  display: inline-block;
+  background: transparent;
+  color: #fff7d4; /* $gold-l */
+  border: 1.5px solid rgba(255, 215, 0, 0.5);
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  font-family: 'Alice', serif;
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: #ffd700;
+    color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 600px) {
+  .rsvp-card { padding: 2rem 1.2rem; }
+}
+
+
+.rsvp-bottom-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.rsvp-wave {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+.rsvp-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.8rem 2rem 1.5rem;
+  background: linear-gradient(180deg, rgba(75, 0, 130, 0.3) 0%, rgba(10, 2, 30, 0.8) 100%);
+}
+
+.ornament-line {
+  flex: 1;
+  height: 1px;
+  max-width: 120px;
+  background: linear-gradient(90deg, transparent, rgba(155, 48, 255, 0.7), transparent);
+}
+
+.ornament-flower {
+  font-size: 1rem;
+  color: #b06aff;
+  letter-spacing: 8px;
+  text-shadow: 0 0 12px rgba(155, 48, 255, 0.6);
+  animation: ornamentGlow 3s ease-in-out infinite;
+}
+
+@keyframes ornamentGlow {
+  0%, 100% { text-shadow: 0 0 8px rgba(155, 48, 255, 0.4); opacity: 0.8; }
+  50%       { text-shadow: 0 0 20px rgba(155, 48, 255, 1); opacity: 1; }
+}

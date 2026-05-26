@@ -1,0 +1,102 @@
+.event-section {
+  flex-direction: row;
+  gap: 3rem;
+  flex-wrap: wrap;
+  background: linear-gradient(180deg, rgba(10,2,30,0.0) 0%, rgba(20,5,50,0.85) 50%, rgba(10,2,30,0.0) 100%);
+  padding: 4rem 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.event-photo-col {
+  flex: 0 0 auto;
+}
+
+.event-photo {
+  width: clamp(180px, 28vw, 320px);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(75, 0, 130, 0.5);
+}
+
+.event-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 380px;
+}
+
+/* Cards de eventos con glassmorphism */
+.event-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.15);
+  }
+}
+
+.event-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-card-title {
+  font-family: 'Alice', serif;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  color: #ffd700; /* $gold */
+  margin-bottom: 0.5rem;
+}
+
+.event-card-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  color: rgba(255, 247, 212, 0.85);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.cat-mouth {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Botón transparente con borde dorado */
+.glass-btn {
+  display: inline-block;
+  background: transparent;
+  color: #fff7d4; /* $gold-l */
+  border: 1.5px solid rgba(255, 215, 0, 0.5);
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  font-family: 'Alice', serif;
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: #ffd700;
+    color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 600px) {
+  .event-section {
+    padding: 3rem 1rem;
+  }
+}

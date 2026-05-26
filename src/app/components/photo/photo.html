@@ -1,0 +1,44 @@
+<section class="section photo-section" #photoSection>
+
+  <!-- Borde decorativo superior -->
+  <img
+    #topBorder
+    src="assets/images/borde.png"
+    alt=""
+    class="top-border-decor"
+    aria-hidden="true">
+
+  <img
+    #extraDecor
+    src="assets/images/2b6cfc904d7b53a5053b011f8275b1b2-copia.webp"
+    alt="Decoracion"
+    class="extra-decor-front">
+
+  <!-- Partículas de brillo -->
+  <div class="sparkles" aria-hidden="true">
+    <span class="sparkle s1">✦</span>
+    <span class="sparkle s2">✦</span>
+    <span class="sparkle s3">✦</span>
+    <span class="sparkle s4">✦</span>
+    <span class="sparkle s5">✦</span>
+    <span class="sparkle s6">★</span>
+  </div>
+
+  <!-- Foto principal al centro -->
+  <div class="main-photo-container" #mainPhotoContainer>
+    <div class="photo-glow-ring"></div>
+    <img
+      #mainPhoto
+      src="assets/images/main.jpg"
+      alt="Quinceañera"
+      class="alicia-main-photo faded-edges">
+  </div>
+
+  <!-- Gato: detrás de la foto, gira con scroll (manipulación directa de DOM) -->
+  <img
+    #gatoImg
+    src="assets/images/Gato.webp"
+    alt="Gato"
+    class="gato-decor">
+
+</section>

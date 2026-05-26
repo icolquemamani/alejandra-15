@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Fuente propia Alice in Wonderland */
+@font-face {
+  font-family: 'Alice';
+  src: url('/assets/fonts/Alice_in_Wonderland_3.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --primary-color: #4b0082;
+  --accent-color:  #ffd700;
+  --text-color:    #f5f5f5;
+  --bg-dark:       #0a0a0c;
+  --gold-light:    #fff7d4;
+  --brown:         #c19a5b;
+  --alice-font:    "Alice", serif;
+  --script-font:   "Great Vibes", cursive;
+  --serif-font:    "Playfair Display", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+}
+
+body {
+  font-family: var(--alice-font);
+  // dark 10% opacity
+  background-color: rgba(10, 2, 30, 0.4);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* Prevent white flash/background in fullscreen mode */
+:fullscreen,
+::backdrop {
+  background-color: var(--bg-dark) !important;
+}
+
+html:-webkit-full-screen {
+  background-color: var(--bg-dark) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
+
+/* =============================================
+   ANIMACIONES GLOBALES
+   ============================================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(35px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes pulseMagical {
+  0%   { filter: drop-shadow(0 0 5px  rgba(138, 43, 226, 0.5)); }
+  50%  { filter: drop-shadow(0 0 22px rgba(138, 43, 226, 0.85)); }
+  100% { filter: drop-shadow(0 0 5px  rgba(138, 43, 226, 0.5)); }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px);   }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0px);   }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.fade-in      { animation: fadeIn       1.4s ease-out forwards; }
+.slide-up     { animation: slideUp      1.0s ease-out forwards; }
+.magical-pulse{ animation: pulseMagical 3.5s infinite ease-in-out; }
+.float        { animation: float        6s   infinite ease-in-out; }
+
+/* =============================================
+   ESTILOS DE SECCIÓN MAESTRA Y ESTRUCTURA DE COMPONENTES
+   ============================================= */
+
+/* Asegurar que los hosts de los componentes standalone actúen como bloques a pantalla completa */
+app-intro,
+app-family,
+app-date,
+app-photo,
+app-event,
+app-gifts,
+app-rsvp,
+app-gallery {
+  display: block;
+  width: 100%;
+}
+
+/* Centrado vertical y horizontal perfecto para todas las secciones */
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}

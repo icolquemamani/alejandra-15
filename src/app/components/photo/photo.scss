@@ -1,0 +1,190 @@
+section {
+  padding: 0 !important;
+  padding-bottom: 6rem !important;
+}
+/* ============================
+   PHOTO SECTION
+   ============================ */
+.photo-section {
+  position: relative;
+  min-height: 80vh;
+  padding: 5rem 1rem 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Sin overflow:hidden para que el gato sea visible */
+}
+
+/* ============================
+   BORDE SUPERIOR DECORATIVO
+   ============================ */
+.top-border-decor {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Encima de la foto principal (z-index 10) y de extra-decor-front (z-index 20) */
+  z-index: 50;
+  margin-bottom: 20px;
+  pointer-events: none;
+  //  top and button transparent 20% and 90%
+  -webkit-mask-image: linear-gradient(to bottom,
+    transparent  0%,
+    black       10%,
+    black       90%,
+    transparent 100%);
+  mask-image: linear-gradient(to bottom,
+    transparent  0%,
+    black       10%,
+    black       90%,
+    transparent 100%);
+}
+
+/* ============================
+   SPARKLES
+   ============================ */
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  color: #f9d4ff;
+  font-size: 1.4rem;
+  animation: sparkle-pulse 3s ease-in-out infinite;
+  opacity: 0;
+  text-shadow: 0 0 10px rgba(220, 100, 255, 0.8);
+}
+
+.s1 { top: 12%;  left: 18%;  animation-delay: 0s;    font-size: 1.1rem; }
+.s2 { top: 75%;  left: 12%;  animation-delay: 0.6s;  font-size: 1.6rem; }
+.s3 { top: 20%;  right: 15%; animation-delay: 1.2s;  font-size: 0.9rem; }
+.s4 { top: 60%;  right: 10%; animation-delay: 1.8s;  font-size: 1.4rem; }
+.s5 { top: 85%;  left: 40%;  animation-delay: 0.9s;  font-size: 1.0rem; }
+.s6 { top: 8%;   left: 55%;  animation-delay: 2.1s;  font-size: 1.8rem; }
+
+@keyframes sparkle-pulse {
+  0%   { opacity: 0;   transform: scale(0.6) rotate(0deg);   }
+  40%  { opacity: 1;   transform: scale(1.2) rotate(15deg);  }
+  100% { opacity: 0;   transform: scale(0.6) rotate(30deg);  }
+}
+
+/* ============================
+   FOTO PRINCIPAL (z-index: 10)
+   ============================ */
+.main-photo-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-glow-ring {
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center,
+    rgba(200, 80, 255, 0.35) 0%,
+    rgba(100, 0, 180, 0.2)   50%,
+    transparent              75%);
+  animation: ring-pulse 4s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes ring-pulse {
+  0%   { transform: scale(0.97); opacity: 0.7; }
+  50%  { transform: scale(1.04); opacity: 1;   }
+  100% { transform: scale(0.97); opacity: 0.7; }
+}
+
+.alicia-main-photo.faded-edges {
+  width: clamp(220px, 70vw, 460px);
+  border-radius: 14px;
+  display: block;
+  -webkit-mask-image: linear-gradient(to bottom,
+    transparent  0%,
+    black       18%,
+    black       82%,
+    transparent 100%);
+  mask-image: linear-gradient(to bottom,
+    transparent  0%,
+    black       18%,
+    black       82%,
+    transparent 100%);
+  box-shadow:
+    0 0 0 2px rgba(200, 80, 255, 0.25),
+    0 0 50px rgba(160, 32, 240, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.alicia-main-photo.faded-edges:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 0 3px rgba(200, 80, 255, 0.5),
+    0 0 80px rgba(160, 32, 240, 0.5),
+    0 24px 70px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================
+   GATO (z-index: 5 – detrás de la foto, abajo)
+   ============================ */
+.gato-decor {
+  position: absolute;
+  width: clamp(380px, 50vw, 780px);
+  bottom: -10%;
+  left: 50%;
+  /* El getter gatoTransform pone translateX(-50%) + rotate */
+  will-change: transform;
+  z-index: 100;
+  filter: drop-shadow(0 0 28px rgba(160, 32, 240, 0.4));
+  opacity: 0.92;
+}
+
+/* ============================
+   DECORACIÓN FRONTAL (z-index: 20 – encima de la foto)
+   ============================ */
+.extra-decor-front {
+  position: absolute;
+  width: clamp(100px, 10vw, 150px);
+  top: 10%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 100;
+  animation: float-front 5s ease-in-out infinite;
+  filter: drop-shadow(0 6px 14px rgba(200, 80, 255, 0.4));
+}
+
+@keyframes float-front {
+  0%   { transform: translateY(0px)   rotate(-2deg); }
+  50%  { transform: translateY(-18px) rotate(2deg);  }
+  100% { transform: translateY(0px)   rotate(-2deg); }
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 768px) {
+  .photo-section {
+    min-height: 70vh;
+    padding: 3rem 0.5rem;
+  }
+
+  .gato-decor {
+    width: clamp(180px, 70vw, 300px);
+  }
+
+  .extra-decor-front {
+    width: clamp(80px, 20vw, 130px);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 3%;
+    top: 10%;
+  }
+}
