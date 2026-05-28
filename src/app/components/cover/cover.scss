@@ -37,7 +37,7 @@
 .cover-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/assets/images/portada-alicia-2-scaled-copia.webp');
+  background-image: url('../../../../public/assets/images/portada-alicia-2-scaled-copia.webp');
   background-size: cover;
   background-position: center 70%;
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@
   }
 
   @media (max-width: 768px) {
-    background-image: url('/assets/images/portada-alicia-1.png');
+    background-image: url('../../../../public/assets/images/portada-alicia-1.png');
     background-position: center 30%;
   }
 }

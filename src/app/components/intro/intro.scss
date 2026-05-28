@@ -15,7 +15,7 @@
     rgba(10, 2, 30, 0.15) 0%,
     rgba(30, 10, 60, 0.2) 40%,
     rgba(10, 2, 30, 0.1) 100%
-  ), url('/assets/images/fondo-3-brigerton-copia-copia-1.webp');
+  ), url('../../../../public/assets/images/fondo-3-brigerton-copia-copia-1.webp');
 
   /* Pantallas grandes (desktop / tablet) */
   @media (min-width: 769px) {
@@ -24,7 +24,7 @@
       rgba(10, 2, 30, 0.1) 0%,
       rgba(30, 10, 60, 0.2) 40%,
       rgba(10, 2, 30, 0.1) 100%
-    ), url('/assets/images/fondo-3-brigerton-copia-copia-2.webp');
+    ), url('../../../../public/assets/images/fondo-3-brigerton-copia-copia-2.webp');
   }
 }
 
@@ -55,7 +55,7 @@
 
 .intro-xvanos {
   font-family: 'Alice', serif;
-  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-size: clamp(3rem, 6vw, 3rem);
   color: #FFD700; /* Yellow Gold puro */
   font-weight: 700;
   letter-spacing: 4px;

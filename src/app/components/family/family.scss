@@ -57,16 +57,28 @@
 
 .family-quote {
   font-family: 'Alice', serif;
-  font-size: clamp(1.8rem, 2vw, 1.1rem);
-  color: rgba(255, 247, 212, 0.8);
+  font-size: clamp(1.6rem, 1.6vw, 1.2rem);
+  color: rgba(246, 245, 141, 0.8);
   line-height: 1.6;
 }
 
 .family-names {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 2.5vw, 1.25rem);
+  font-size: clamp(1.4rem, 2vw, 1rem);
   color: #ffd700; /* $gold */
   line-height: 1.7;
+  animation: nameGlow 4s infinite ease-in-out;
+}
+
+@keyframes nameGlow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7), 0 0 25px rgba(255, 215, 0, 0.4);
+  }
 }
 
 @media (max-width: 600px) {
