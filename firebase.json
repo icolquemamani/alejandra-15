@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/alicia-invitation",
+    "public": "dist/alicia-invitation/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
